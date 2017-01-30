@@ -1,0 +1,8 @@
+{
+   "clases": [
+       { "profesor":"Ana y Luis" , "horario":"21" , "ubicacion":"Peru y Pedro Molina" , "duracion":"2hs"}, 
+       { "profesor":"Veronica Gaia" , "horario":"20" , "ubicacion":"Jorge A. Calle 345" , "duracion":"1hs"},
+       { "profesor":"Hector Moreno" , "horario":"20" , "ubicacion":"Club Regatas" , "duracion":"2hs"}, 
+       { "profesor":"Cristobal Estrella" , "horario":"20" , "ubicacion":"Gutierrez 832" , "duracion":"2hs"}
+    ]
+}
