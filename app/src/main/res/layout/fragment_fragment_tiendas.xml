@@ -5,9 +5,13 @@
     tools:context="com.valdiviezo.anahi.tangomio.FragmentTiendas">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="tiendas" />
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:background="@drawable/selector_row"
+        android:id="@+id/recyclerViewTiendas">
+
+    </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>
