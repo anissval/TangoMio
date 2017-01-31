@@ -1,5 +1,6 @@
 package com.valdiviezo.anahi.tangomio;
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.net.Uri;
@@ -19,6 +20,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -26,7 +29,7 @@ public class FragmentClases extends Fragment {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
     private RecyclerAdapter mAdapter;
-
+    private List<Clase> dataClases;
 
     public FragmentClases() {
         // Required empty public constructor
@@ -40,14 +43,12 @@ public class FragmentClases extends Fragment {
         mRecyclerView = (RecyclerView)rootView.findViewById(R.id.recyclerViewClases);
         mLinearLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-        mAdapter = new RecyclerAdapter();
+        retrieveData();
+        //los datos se setean en el constructor del adapter
+        mAdapter = new RecyclerAdapter(dataClases);
+
         mRecyclerView.setAdapter(mAdapter);
 
-        try {
-            parseJsonData();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         // Inflate the layout for this fragment
         return rootView;
     }
@@ -61,8 +62,15 @@ public class FragmentClases extends Fragment {
         Type listType = new TypeToken<List<Clase>>(){ }.getType();
 
         Gson gson = new Gson();
-        List<Clase> dataClases = gson.fromJson(reader, Clase.class);
+        dataClases = gson.fromJson(reader, listType);
     }
 
+    private void retrieveData(){
+        try {
+            parseJsonData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

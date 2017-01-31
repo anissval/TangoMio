@@ -4,8 +4,9 @@ package com.valdiviezo.anahi.tangomio;
  * Created by avaldiviezo on 1/30/17.
  */
 public class Clase {
-
-    public Clase(){}
+    private String horario;
+    private String ubicacion;
+    private String duracion;
 
     public Clase(String profesor, String horario, String ubicacion, String duracion) {
         this.profesor = profesor;
@@ -48,8 +49,6 @@ public class Clase {
         this.duracion = duracion;
     }
 
-    private String horario;
-    private String ubicacion;
-    private String duracion;
+
 
 }

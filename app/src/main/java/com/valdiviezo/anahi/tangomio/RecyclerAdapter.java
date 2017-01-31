@@ -1,5 +1,6 @@
 package com.valdiviezo.anahi.tangomio;
 
+import android.content.res.AssetManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,11 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by avaldiviezo on 1/30/17.
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ClaseHolder>{
 
+    List<Clase> listaClases;
+
+    public RecyclerAdapter(List<Clase> list) {
+        listaClases = list;
+    }
 
     @Override
     public ClaseHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -22,16 +30,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ClaseH
 
     @Override
     public void onBindViewHolder(ClaseHolder holder, int position) {
-
+        holder.profesor.setText(listaClases.get(position).getProfesor());
+        holder.horario.setText(listaClases.get(position).getHorario());
+        holder.ubicacion.setText(listaClases.get(position).getUbicacion());
+        holder.duracion.setText(listaClases.get(position).getDuracion());
     }
 
     //cantidad de items que va a mostrar en la lista, por default viene en cero y no mostraba nada.
     @Override
     public int getItemCount() {
-        return 1;
+        return listaClases.size();
     }
-
-
 
     public static class ClaseHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
