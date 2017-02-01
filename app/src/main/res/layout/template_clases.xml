@@ -3,21 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@color/colorAccent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    android:background="@drawable/selector_row">
 
     <GridLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView2"
-        android:layout_weight="0.7">
+        android:layout_weight="0.7"
+        android:layout_margin="15dp">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Profesor : "
+            android:text="@string/label_profesor"
             android:id="@+id/textView3"
             android:layout_row="0"
             android:layout_column="0" />
@@ -26,7 +30,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
             android:id="@+id/clase_profesor"
             android:layout_row="0"
             android:layout_column="1" />
@@ -35,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Horario : "
+            android:text="@string/label_horario"
             android:id="@+id/textView5"
             android:layout_row="1"
             android:layout_column="0" />
@@ -44,7 +47,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
             android:id="@+id/clase_horario"
             android:layout_row="1"
             android:layout_column="1" />
@@ -53,7 +55,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
             android:id="@+id/clase_ubicacion"
             android:layout_row="2"
             android:layout_column="1" />
@@ -62,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Ubicacion : "
+            android:text="@string/label_ubicacion"
             android:id="@+id/textView7"
             android:layout_row="2"
             android:layout_column="0" />
@@ -81,7 +82,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
             android:id="@+id/clase_duracion"
             android:layout_row="3"
             android:layout_column="1" />
@@ -92,6 +92,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
         android:src="@drawable/ic_pareja_tango_3"
-        android:layout_weight="0.3"/>
+        android:layout_weight="0.3"
+        android:padding="15dp"/>
 
 </LinearLayout>

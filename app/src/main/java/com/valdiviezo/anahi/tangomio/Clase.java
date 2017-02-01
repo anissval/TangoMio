@@ -6,6 +6,7 @@ package com.valdiviezo.anahi.tangomio;
 public class Clase {
     private String horario;
     private String ubicacion;
+    private String mapa;
     private String duracion;
 
     public Clase(String profesor, String horario, String ubicacion, String duracion) {
@@ -39,6 +40,14 @@ public class Clase {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public String getMapa() {
+        return mapa;
+    }
+
+    public void setMapa(String mapa) {
+        this.mapa = mapa;
     }
 
     public String getDuracion() {
