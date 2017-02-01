@@ -27,7 +27,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,UbicacionFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,UbicacionFragment.OnFragmentInteractionListener, FragmentRanking.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
