@@ -11,5 +11,8 @@
     <string name="label_profesor">Profesor :</string>
     <string name="label_horario">Horario :</string>
     <string name="label_ubicacion">Ubicacion :</string>
+    <string name="title_activity_login">Tango Mio</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>
