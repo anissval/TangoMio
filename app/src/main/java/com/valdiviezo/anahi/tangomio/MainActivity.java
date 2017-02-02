@@ -2,6 +2,7 @@ package com.valdiviezo.anahi.tangomio;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,7 +28,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,UbicacionFragment.OnFragmentInteractionListener, FragmentRanking.OnFragmentInteractionListener , FragmentVotacion.OnFragmentInteractionListener, FragmentVideo.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity
                 fragmentTransaction = true;
                 break;
             case R.id.nav_ranking:
-                fragment = new FragmentRanking();
+                fragment = new FragmentVotacion();
                 fragmentTransaction = true;
                 break;
             case R.id.nav_tiendas:
@@ -137,6 +138,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        //vacio por ahora
     }
 
 
