@@ -1,3 +1,4 @@
+
 package com.valdiviezo.anahi.tangomio;
 
 import android.support.v7.widget.RecyclerView;
@@ -15,9 +16,9 @@ import java.util.List;
  */
 public class RecyclerAdapterRanking extends RecyclerView.Adapter<RecyclerAdapterRanking.RankingHolder>{
 
-    List<Cancion> listaRanking;
+    List<Ranking> listaRanking;
 
-    public RecyclerAdapterRanking(List<Cancion> list) {
+    public RecyclerAdapterRanking(List<Ranking> list) {
         listaRanking = list;
     }
 
@@ -30,7 +31,10 @@ public class RecyclerAdapterRanking extends RecyclerView.Adapter<RecyclerAdapter
 
     @Override
     public void onBindViewHolder(RankingHolder holder, int position) {
-        holder.checkBoxRanking.setText(listaRanking.get(position).getCancionAutor());
+        holder.ranking_nombre.setText(listaRanking.get(position).getNombre());
+        holder.ranking_autor.setText(listaRanking.get(position).getAutor());
+        holder.ranking_posicion.setText(listaRanking.get(position).getPosicion());
+
     }
 
     //cantidad de items que va a mostrar en la lista, por default viene en cero y no mostraba nada.
@@ -42,11 +46,17 @@ public class RecyclerAdapterRanking extends RecyclerView.Adapter<RecyclerAdapter
 
     public static class RankingHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private CheckBox checkBoxRanking;
+        private TextView ranking_nombre;
+        private TextView ranking_autor;
+        private TextView ranking_posicion;
+
 
         public RankingHolder(View v) {
             super(v);
-            checkBoxRanking = (CheckBox) v.findViewById(R.id.checkBoxRanking);
+            ranking_nombre = (TextView) v.findViewById(R.id.ranking_nombre);
+            ranking_autor = (TextView) v.findViewById(R.id.ranking_autor);
+            ranking_posicion = (TextView) v.findViewById(R.id.ranking_posicion);
+
             v.setOnClickListener(this);
         }
 

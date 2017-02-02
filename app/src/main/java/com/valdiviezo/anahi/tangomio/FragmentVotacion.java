@@ -2,17 +2,13 @@ package com.valdiviezo.anahi.tangomio;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -20,8 +16,6 @@ import android.widget.RadioGroup;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import com.valdiviezo.anahi.tangomio.Helper.RecyclerTouchListener;
-import com.valdiviezo.anahi.tangomio.Helper.SeparatorDecoration;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,23 +23,21 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.List;
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FragmentRanking.OnFragmentInteractionListener} interface
+ * {@link FragmentVotacion.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FragmentRanking#newInstance} factory method to
+ * Use the {@link FragmentVotacion#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentRanking extends Fragment {
+public class FragmentVotacion extends Fragment {
 
-    private RecyclerView mRecyclerView;
-    private LinearLayoutManager mLinearLayoutManager;
-    private RecyclerAdapterRanking mAdapter;
-
+    private RadioGroup radiogroupCanciones;
+    static private List<Cancion> dataCancion;
     private ProgressBar loadingIndicator;
-    static private List<Ranking> dataRanking;
-
+    private Button buttonEnviarVoto;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +50,7 @@ public class FragmentRanking extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public FragmentRanking() {
+    public FragmentVotacion() {
         // Required empty public constructor
     }
 
@@ -68,11 +60,11 @@ public class FragmentRanking extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentRanking.
+     * @return A new instance of fragment FragmentVotacion.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentRanking newInstance(String param1, String param2) {
-        FragmentRanking fragment = new FragmentRanking();
+    public static FragmentVotacion newInstance(String param1, String param2) {
+        FragmentVotacion fragment = new FragmentVotacion();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -81,55 +73,41 @@ public class FragmentRanking extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+    }
 
-        View rootRanking = inflater.inflate(R.layout.fragment_fragment_ranking, container, false);
-        loadingIndicator = (ProgressBar) rootRanking.findViewById(R.id.loadingIndicator);
-
-        mRecyclerView = (RecyclerView)rootRanking.findViewById(R.id.recyclerViewRanking);
-        mLinearLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(mLinearLayoutManager);
-
-        // add the decoration to the recyclerView
-        SeparatorDecoration decoration = new SeparatorDecoration(getActivity(), Color.GRAY, 1.5f);
-        mRecyclerView.addItemDecoration(decoration);
-        retrieveData();
-        //los datos se setean en el constructor del adapter
-        mAdapter = new RecyclerAdapterRanking(dataRanking);
-        mRecyclerView.setAdapter(mAdapter);
-
-        mRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(),
-                mRecyclerView, new RecyclerTouchListener.ClickListener() {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootVotacion = inflater.inflate(R.layout.fragment_fragment_votacion, container, false);
+        radiogroupCanciones = (RadioGroup) rootVotacion.findViewById(R.id.radiogroupCanciones);
+        buttonEnviarVoto = (Button) rootVotacion.findViewById(R.id.buttonEnviarVoto);
+        buttonEnviarVoto.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view, int position) {
-                view.setSelected(true);
-                String videoLink = dataRanking.get(position).getVideoLink();
-                FragmentVideo videoFragment = new FragmentVideo();
-                Bundle bundle = new Bundle();
-                bundle.putString("_videoUrl",videoLink);
-                videoFragment.setArguments(bundle);
+            public void onClick(View v) {
+                FragmentRanking fragment = new FragmentRanking();
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.content_main, videoFragment)
+                        .replace(R.id.content_main, fragment)
                         .commit();
             }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
+        });
+        retrieveData();
+        for (int row = 0; row < 1; row++) {
+            for (int i = 1; i < dataCancion.size(); i++) {
+                RadioButton rdbtn = new RadioButton(getActivity());
+                rdbtn.setId((row * 2) + i);
+                rdbtn.setText(dataCancion.get(i).getCancionAutor());
+                radiogroupCanciones.addView(rdbtn);
             }
         }
-        ));
+        return rootVotacion;
 
-
-
-
-
-        return rootRanking;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -171,17 +149,16 @@ public class FragmentRanking extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-
-    //recuperamos datos del ranking
+    //recuperamos datos de las clases
     private void parseJsonData() throws IOException {
         AssetManager assetManager = getActivity().getAssets();
         InputStream inputStream;
-        inputStream = assetManager.open("ranking.json");
+        inputStream = assetManager.open("canciones.json");
         JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
-        Type listType = new TypeToken<List<Ranking>>(){ }.getType();
+        Type listType = new TypeToken<List<Cancion>>(){ }.getType();
 
         Gson gson = new Gson();
-        dataRanking= gson.fromJson(reader, listType);
+        dataCancion = gson.fromJson(reader, listType);
     }
 
     private void retrieveData(){
@@ -191,7 +168,4 @@ public class FragmentRanking extends Fragment {
             e.printStackTrace();
         }
     }
-
-
 }
-

@@ -27,7 +27,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,UbicacionFragment.OnFragmentInteractionListener, FragmentRanking.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,UbicacionFragment.OnFragmentInteractionListener, FragmentRanking.OnFragmentInteractionListener , FragmentVotacion.OnFragmentInteractionListener, FragmentVideo.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity
                 fragmentTransaction = true;
                 break;
             case R.id.nav_ranking:
-                fragment = new FragmentRanking();
+                fragment = new FragmentVotacion();
                 fragmentTransaction = true;
                 break;
             case R.id.nav_tiendas:
