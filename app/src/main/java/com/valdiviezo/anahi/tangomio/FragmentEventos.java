@@ -43,7 +43,7 @@ public class FragmentEventos extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_fragment_eventos, container, false);
         // Instantiate a ViewPager
-        this.pager = (ViewPager) root.findViewById(R.id.pager);
+        this.pager = (ViewPager) root.findViewById(R.id.eventos_pager);
 
         // Create an adapter with the fragments we show on the ViewPager
         pagerAdapter = new MyFragmentPagerAdapter(
