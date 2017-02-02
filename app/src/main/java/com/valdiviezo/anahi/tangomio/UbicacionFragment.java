@@ -97,7 +97,6 @@ public class UbicacionFragment extends Fragment {
         });
         mWebview.loadUrl(mapUrl);
 
-        // Inflate the layout for this fragment
         return root;
     }
 

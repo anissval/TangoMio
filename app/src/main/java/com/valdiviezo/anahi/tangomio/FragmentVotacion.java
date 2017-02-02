@@ -149,7 +149,7 @@ public class FragmentVotacion extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    //recuperamos datos de las clases
+    //recuperamos datos de las canciones
     private void parseJsonData() throws IOException {
         AssetManager assetManager = getActivity().getAssets();
         InputStream inputStream;

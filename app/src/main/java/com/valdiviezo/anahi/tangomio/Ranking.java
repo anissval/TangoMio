@@ -8,13 +8,13 @@ public class Ranking {
     private String nombre;
     private String autor;
     private String posicion;
-    private String videoLink;
+    private String linkVideo;
 
-    public Ranking(String nombre, String autor, String posicion, String videoLink) {
+    public Ranking(String nombre, String autor, String posicion, String linkVideo) {
         this.nombre = nombre;
         this.autor = autor;
         this.posicion = posicion;
-        this.videoLink = videoLink;
+        this.linkVideo = linkVideo;
     }
 
     public String getNombre() {
@@ -42,12 +42,12 @@ public class Ranking {
     }
 
 
-    public String getVideoLink() {
-        return videoLink;
+    public String getLinkVideo() {
+        return linkVideo;
     }
 
-    public void setVideoLink(String videoLink) {
-        this.videoLink = videoLink;
+    public void setLinkVideo(String linkVideo) {
+        this.linkVideo = linkVideo;
     }
 
 }

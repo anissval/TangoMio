@@ -11,11 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -108,7 +104,7 @@ public class FragmentRanking extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 view.setSelected(true);
-                String videoLink = dataRanking.get(position).getVideoLink();
+                String videoLink = dataRanking.get(position).getLinkVideo();
                 FragmentVideo videoFragment = new FragmentVideo();
                 Bundle bundle = new Bundle();
                 bundle.putString("_videoUrl",videoLink);
