@@ -121,6 +121,7 @@ public class MainActivity extends AppCompatActivity
                 fragmentTransaction = true;
                 break;
             case R.id.nav_share:
+                compartirApp();
                 break;
             case R.id.nav_send:
                 break;
@@ -145,6 +146,15 @@ public class MainActivity extends AppCompatActivity
         //vacio por ahora
     }
 
+    public void compartirApp(){
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = "Toda la info sobre Tango y mas, descarga esta Aplicacion : https://play.google.com/store/apps/details?id=com.todotango.todotangoradio";
+        String shareSub = "Tango Mio";
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Compartir esta App usando ... "));
+    }
 
 
 }
