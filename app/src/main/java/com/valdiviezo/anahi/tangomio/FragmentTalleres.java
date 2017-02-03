@@ -1,6 +1,7 @@
 package com.valdiviezo.anahi.tangomio;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,16 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.List;
 
 
 ///**
@@ -30,6 +41,7 @@ public class FragmentTalleres extends Fragment {
      * The pager adapter, which provides the pages to the view pager widget.
      */
     MyFragmentPagerAdapter pagerAdapter;
+    private List<Taller> dataTalleres;
 
 
     public FragmentTalleres() {
@@ -41,28 +53,42 @@ public class FragmentTalleres extends Fragment {
                              Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_fragment_talleres, container, false);
+        retrieveData();
         // Instantiate a ViewPager
         this.pager = (ViewPager) root.findViewById(R.id.talleres_pager);
-
         // Create an adapter with the fragments we show on the ViewPager
-        /*pagerAdapter = new MyFragmentPagerAdapter(
+        pagerAdapter = new MyFragmentPagerAdapter(
                 getActivity().getSupportFragmentManager());
-        pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
-                .getColor(R.color.colorPrimary), 0));
-        pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
-                .getColor(R.color.colorAccent), 1));
-        pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
-                .getColor(R.color.colorPrimaryDark), 2));
-        pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
-                .getColor(R.color.colorPrimary), 3));
-        pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
-                .getColor(R.color.colorAccent), 4));
+
+        for(int i= 0; i<dataTalleres.size();i++){
+            pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(dataTalleres.get(i).getUrlImage(),Integer.parseInt(dataTalleres.get(i).getIndex())));
+        }
         this.pager.setAdapter(pagerAdapter);
-*/
+
         // Inflate the layout for this fragment
         return root;
     }
 
 //    @Override
 //    public void ons
+
+    //recuperamos datos de talleres
+    private void parseJsonData() throws IOException {
+        AssetManager assetManager = getActivity().getAssets();
+        InputStream inputStream;
+        inputStream = assetManager.open("talleres.json");
+        JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
+        Type listType = new TypeToken<List<Taller>>(){ }.getType();
+
+        Gson gson = new Gson();
+        dataTalleres = gson.fromJson(reader, listType);
+    }
+
+    private void retrieveData(){
+        try {
+            parseJsonData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

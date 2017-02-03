@@ -41,11 +41,39 @@ public class FragmentEventos extends Fragment {
     /**
      * The pager adapter, which provides the pages to the view pager widget.
      */
-    MyFragmentPagerAdapter pagerAdapter;
+    MyFragmentPagerAdapter pagerAdapterEventos;
+
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
 
 
     public FragmentEventos() {
         // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment FragmentRanking.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static FragmentEventos newInstance(String param1, String param2) {
+        FragmentEventos fragment = new FragmentEventos();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -59,27 +87,13 @@ public class FragmentEventos extends Fragment {
         this.pager = (ViewPager) root.findViewById(R.id.eventos_pager);
 
         // Create an adapter with the fragments we show on the ViewPager
-        pagerAdapter = new MyFragmentPagerAdapter(
+        pagerAdapterEventos = new MyFragmentPagerAdapter(
                 getActivity().getSupportFragmentManager());
 
         for(int i= 0; i<dataEventos.size();i++){
-            pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(dataEventos.get(i).getUrlImage(),Integer.parseInt(dataEventos.get(i).getIndex())));
-
+            pagerAdapterEventos.addFragment(ScreenSlidePageFragment.newInstance(dataEventos.get(i).getUrlImage(),Integer.parseInt(dataEventos.get(i).getIndex())));
         }
-       /* pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
-                .getColor(R.color.colorPrimary), 0));
-
-        pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
-                .getColor(R.color.colorAccent), 1));
-
-        pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
-                .getColor(R.color.colorPrimaryDark), 2));
-
-        pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
-                .getColor(R.color.colorPrimary), 3));
-        pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
-                .getColor(R.color.colorAccent), 4));*/
-        this.pager.setAdapter(pagerAdapter);
+        this.pager.setAdapter(pagerAdapterEventos);
 
         // Inflate the layout for this fragment
         return root;
@@ -88,7 +102,7 @@ public class FragmentEventos extends Fragment {
 //    @Override
 //    public void ons
 
-    //recuperamos datos del ranking
+    //recuperamos datos del Eventos
     private void parseJsonData() throws IOException {
         AssetManager assetManager = getActivity().getAssets();
         InputStream inputStream;
@@ -107,7 +121,5 @@ public class FragmentEventos extends Fragment {
             e.printStackTrace();
         }
     }
-
-
 
 }

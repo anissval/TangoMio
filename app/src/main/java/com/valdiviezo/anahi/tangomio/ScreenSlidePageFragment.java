@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 
 public class ScreenSlidePageFragment extends Fragment {
 
-    private ImageView imageViewEventos;
+    private ImageView imageViewSlide;
 
     /**
      * Key to insert the background color into the mapping of a Bundle.
@@ -79,8 +79,8 @@ public class ScreenSlidePageFragment extends Fragment {
         // Show the current page index in the view
         TextView tvIndex = (TextView) rootView.findViewById(R.id.tvIndex);
         tvIndex.setText(String.valueOf(this.index));
-        imageViewEventos = (ImageView) rootView.findViewById(R.id.imageViewEventos);
-        Picasso.with(getActivity()).load(imageUrl).into(imageViewEventos);
+        imageViewSlide = (ImageView) rootView.findViewById(R.id.imageViewSlide);
+        Picasso.with(getActivity()).load(imageUrl).into(imageViewSlide);
 
         return rootView;
 
