@@ -9,6 +9,8 @@ public class Clase {
     private String mapa;
     private String duracion;
     private String imageUrl;
+    private String provincia;
+    private String departamento;
 
     public Clase(String horario, String ubicacion, String mapa, String duracion, String imageUrl, String profesor) {
         this.horario = horario;

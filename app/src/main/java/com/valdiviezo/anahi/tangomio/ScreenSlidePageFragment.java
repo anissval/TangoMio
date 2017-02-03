@@ -13,13 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 public class ScreenSlidePageFragment extends Fragment {
 
     private ImageView imageViewSlide;
+    private ProgressBar loadingIndicatorSlide;
 
     /**
      * Key to insert the background color into the mapping of a Bundle.
@@ -35,15 +38,7 @@ public class ScreenSlidePageFragment extends Fragment {
     private int index;
     private String imageUrl;
 
-    /**
-     * Instances a new fragment with a background color and an index page.
-     *
-     * @param color
-     *            background color
-     * @param index
-     *            index page
-     * @return a new page
-     */
+
     public static ScreenSlidePageFragment newInstance(String imageUrl, int index) {
 
         // Instantiate a new fragment
@@ -79,8 +74,20 @@ public class ScreenSlidePageFragment extends Fragment {
         // Show the current page index in the view
         TextView tvIndex = (TextView) rootView.findViewById(R.id.tvIndex);
         tvIndex.setText(String.valueOf(this.index));
+        loadingIndicatorSlide = (ProgressBar) rootView.findViewById(R.id.loadingIndicatorSlide);
+        loadingIndicatorSlide.setVisibility(View.VISIBLE);
         imageViewSlide = (ImageView) rootView.findViewById(R.id.imageViewSlide);
-        Picasso.with(getActivity()).load(imageUrl).into(imageViewSlide);
+        Picasso.with(getActivity()).load(imageUrl).into(imageViewSlide, new Callback() {
+            @Override
+            public void onSuccess() {
+                loadingIndicatorSlide.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
 
         return rootView;
 

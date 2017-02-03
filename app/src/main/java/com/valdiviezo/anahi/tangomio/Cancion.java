@@ -31,7 +31,7 @@ public class Cancion {
     }
 
     public String getCancionAutor(){
-        return getNombreCancion()+""+getNombreAutor();
+        return getNombreCancion()+" - "+getNombreAutor();
     }
 
     public String getLinkVideo() {
