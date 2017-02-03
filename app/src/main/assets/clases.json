@@ -4,56 +4,112 @@
     "horario": "21hs",
     "ubicacion":"Belgrano y Pedro Molina",
     "mapa": "https://www.google.com.ar/maps/place/Av.+Pedro+Molina+%26+Per%C3%BA,+Mendoza/@-32.8962209,-68.8523793,17z/data=!3m1!4b1!4m5!3m4!1s0x967e090f04a20b81:0xec961edfaaa95efb!8m2!3d-32.8962209!4d-68.8501906",
-    "duracion": "2hs"
+    "duracion": "2hs",
+    "imageUrl":"http://www.congresosba.com.ar/wp-content/uploads/2012/05/Festival-y-Mundial-de-Tango-en-Buenos-Aires2.jpg"
   },
   {
     "profesor": "Veronica Gaia",
     "horario": "20hs",
     "ubicacion": "Jorge A. Calle 345",
     "mapa":"https://www.google.com.ar/maps/place/Jorge+A.+Calle+35,+5500+Mendoza/@-32.86837,-68.8471717,17z/data=!3m1!4b1!4m5!3m4!1s0x967e08ee4980353b:0x856d61e5d0cbc1b1!8m2!3d-32.86837!4d-68.844983",
-    "duracion": "1hs"
+    "duracion": "1hs",
+    "imageUrl":"http://www.elliberal.com.ar/fotos/notas_bk/2015/05/PRV120515-003F06.jpg"
   },
   {
     "profesor": "Hector Moreno",
     "horario": "20hs",
     "ubicacion": "Club Regatas Mendoza",
     "mapa":"https://www.google.com.ar/maps/place/CLUB+MENDOZA+DE+REGATAS/@-32.8867913,-68.8669576,13z/data=!4m8!1m2!2m1!1sclub+regatas!3m4!1s0x967e09aef089c3f7:0x3ab81a1fb7015ac1!8m2!3d-32.893392!4d-68.866965",
-    "duracion": "2hs"
+    "duracion": "2hs",
+    "imageUrl": "http://assets.estumundo.com.ar/app/uploads/2015/12/07191023/argentina_tango_show-350x260.jpg"
   },
   {
     "profesor": "Cristobal Estrella",
     "horario": "21hs",
     "ubicacion": "Gutierrez 261, Club G y E",
     "mapa":"https://www.google.com.ar/maps/place/Gimnasia+y+Esgrima/@-32.887777,-68.8442867,17z/data=!3m1!4b1!4m5!3m4!1s0x967e091bff26a381:0x5bead6f3f1fca331!8m2!3d-32.887777!4d-68.842098",
-    "duracion": "2hs"
+    "duracion": "2hs",
+    "imageUrl": "http://st-listas.20minutos.es/images/2008-06/25355/325055_640px.jpg?1219372394"
   },
   {
     "profesor": "Ana y Luis",
     "horario": "21hs",
     "ubicacion":"Belgrano y Pedro Molina",
     "mapa": "https://www.google.com.ar/maps/place/Av.+Pedro+Molina+%26+Per%C3%BA,+Mendoza/@-32.8962209,-68.8523793,17z/data=!3m1!4b1!4m5!3m4!1s0x967e090f04a20b81:0xec961edfaaa95efb!8m2!3d-32.8962209!4d-68.8501906",
-    "duracion": "2hs"
+    "duracion": "2hs",
+    "imageUrl": "http://www.ccest.cancilleria.gov.ar/userfiles/TANGO_2.jpg"
   },
   {
     "profesor": "Veronica Gaia",
     "horario": "20hs",
     "ubicacion": "Jorge A. Calle 345",
     "mapa":"https://www.google.com.ar/maps/place/Jorge+A.+Calle+35,+5500+Mendoza/@-32.86837,-68.8471717,17z/data=!3m1!4b1!4m5!3m4!1s0x967e08ee4980353b:0x856d61e5d0cbc1b1!8m2!3d-32.86837!4d-68.844983",
-    "duracion": "1hs"
+    "duracion": "1hs",
+    "imageUrl": "http://www.lancaster.ac.uk/staff/monaghan/images/nada.gif"
   },
   {
     "profesor": "Hector Moreno",
     "horario": "20hs",
     "ubicacion": "Club Regatas Mendoza",
     "mapa":"https://www.google.com.ar/maps/place/CLUB+MENDOZA+DE+REGATAS/@-32.8867913,-68.8669576,13z/data=!4m8!1m2!2m1!1sclub+regatas!3m4!1s0x967e09aef089c3f7:0x3ab81a1fb7015ac1!8m2!3d-32.893392!4d-68.866965",
-    "duracion": "2hs"
+    "duracion": "2hs",
+    "imageUrl": "http://ichef.bbci.co.uk/news/ws/624/amz/worldservice/live/assets/images/2014/11/06/141106151443_argentina_tango_bandoneon_economia_624x351_ap.jpg"
+  },
+  {
+    "profesor": "Ana y Luis",
+    "horario": "21hs",
+    "ubicacion":"Belgrano y Pedro Molina",
+    "mapa": "https://www.google.com.ar/maps/place/Av.+Pedro+Molina+%26+Per%C3%BA,+Mendoza/@-32.8962209,-68.8523793,17z/data=!3m1!4b1!4m5!3m4!1s0x967e090f04a20b81:0xec961edfaaa95efb!8m2!3d-32.8962209!4d-68.8501906",
+    "duracion": "2hs",
+    "imageUrl":"http://www.congresosba.com.ar/wp-content/uploads/2012/05/Festival-y-Mundial-de-Tango-en-Buenos-Aires2.jpg"
+  },
+  {
+    "profesor": "Veronica Gaia",
+    "horario": "20hs",
+    "ubicacion": "Jorge A. Calle 345",
+    "mapa":"https://www.google.com.ar/maps/place/Jorge+A.+Calle+35,+5500+Mendoza/@-32.86837,-68.8471717,17z/data=!3m1!4b1!4m5!3m4!1s0x967e08ee4980353b:0x856d61e5d0cbc1b1!8m2!3d-32.86837!4d-68.844983",
+    "duracion": "1hs",
+    "imageUrl":"http://www.elliberal.com.ar/fotos/notas_bk/2015/05/PRV120515-003F06.jpg"
+  },
+  {
+    "profesor": "Hector Moreno",
+    "horario": "20hs",
+    "ubicacion": "Club Regatas Mendoza",
+    "mapa":"https://www.google.com.ar/maps/place/CLUB+MENDOZA+DE+REGATAS/@-32.8867913,-68.8669576,13z/data=!4m8!1m2!2m1!1sclub+regatas!3m4!1s0x967e09aef089c3f7:0x3ab81a1fb7015ac1!8m2!3d-32.893392!4d-68.866965",
+    "duracion": "2hs",
+    "imageUrl": "http://assets.estumundo.com.ar/app/uploads/2015/12/07191023/argentina_tango_show-350x260.jpg"
   },
   {
     "profesor": "Cristobal Estrella",
     "horario": "21hs",
     "ubicacion": "Gutierrez 261, Club G y E",
     "mapa":"https://www.google.com.ar/maps/place/Gimnasia+y+Esgrima/@-32.887777,-68.8442867,17z/data=!3m1!4b1!4m5!3m4!1s0x967e091bff26a381:0x5bead6f3f1fca331!8m2!3d-32.887777!4d-68.842098",
-    "duracion": "2hs"
+    "duracion": "2hs",
+    "imageUrl": "http://st-listas.20minutos.es/images/2008-06/25355/325055_640px.jpg?1219372394"
+  },
+  {
+    "profesor": "Ana y Luis",
+    "horario": "21hs",
+    "ubicacion":"Belgrano y Pedro Molina",
+    "mapa": "https://www.google.com.ar/maps/place/Av.+Pedro+Molina+%26+Per%C3%BA,+Mendoza/@-32.8962209,-68.8523793,17z/data=!3m1!4b1!4m5!3m4!1s0x967e090f04a20b81:0xec961edfaaa95efb!8m2!3d-32.8962209!4d-68.8501906",
+    "duracion": "2hs",
+    "imageUrl": "http://www.ccest.cancilleria.gov.ar/userfiles/TANGO_2.jpg"
+  },
+  {
+    "profesor": "Veronica Gaia",
+    "horario": "20hs",
+    "ubicacion": "Jorge A. Calle 345",
+    "mapa":"https://www.google.com.ar/maps/place/Jorge+A.+Calle+35,+5500+Mendoza/@-32.86837,-68.8471717,17z/data=!3m1!4b1!4m5!3m4!1s0x967e08ee4980353b:0x856d61e5d0cbc1b1!8m2!3d-32.86837!4d-68.844983",
+    "duracion": "1hs",
+    "imageUrl": "http://www.lancaster.ac.uk/staff/monaghan/images/nada.gif"
+  },
+  {
+    "profesor": "Hector Moreno",
+    "horario": "20hs",
+    "ubicacion": "Club Regatas Mendoza",
+    "mapa":"https://www.google.com.ar/maps/place/CLUB+MENDOZA+DE+REGATAS/@-32.8867913,-68.8669576,13z/data=!4m8!1m2!2m1!1sclub+regatas!3m4!1s0x967e09aef089c3f7:0x3ab81a1fb7015ac1!8m2!3d-32.893392!4d-68.866965",
+    "duracion": "2hs",
+    "imageUrl": "http://ichef.bbci.co.uk/news/ws/624/amz/worldservice/live/assets/images/2014/11/06/141106151443_argentina_tango_bandoneon_economia_624x351_ap.jpg"
   }
 
 ]

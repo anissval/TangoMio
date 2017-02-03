@@ -5,7 +5,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -33,6 +36,7 @@ public class RecyclerAdapterClases extends RecyclerView.Adapter<RecyclerAdapterC
         holder.horario.setText(listaClases.get(position).getHorario());
         holder.ubicacion.setText(listaClases.get(position).getUbicacion());
         holder.duracion.setText(listaClases.get(position).getDuracion());
+        Picasso.with(holder.imageClase.getContext()).load(listaClases.get(position).getImageUrl()).into(holder.imageClase);
 
     }
 
@@ -49,6 +53,7 @@ public class RecyclerAdapterClases extends RecyclerView.Adapter<RecyclerAdapterC
         private TextView ubicacion;
         private TextView horario;
         private TextView duracion;
+        private ImageView imageClase;
 
         public ClaseHolder(View v) {
             super(v);
@@ -56,6 +61,7 @@ public class RecyclerAdapterClases extends RecyclerView.Adapter<RecyclerAdapterC
             horario = (TextView) v.findViewById(R.id.clase_horario);
             ubicacion = (TextView) v.findViewById(R.id.clase_ubicacion);
             duracion = (TextView) v.findViewById(R.id.clase_duracion);
+            imageClase = (ImageView) v.findViewById(R.id.imageClase);
             v.setOnClickListener(this);
         }
 

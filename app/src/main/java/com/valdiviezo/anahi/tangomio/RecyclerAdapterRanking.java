@@ -18,6 +18,7 @@ import java.util.List;
 public class RecyclerAdapterRanking extends RecyclerView.Adapter<RecyclerAdapterRanking.RankingHolder>{
 
     List<Ranking> listaRanking;
+    private static final String rank = "#";
 
     public RecyclerAdapterRanking(List<Ranking> list) {
         listaRanking = list;
@@ -34,7 +35,7 @@ public class RecyclerAdapterRanking extends RecyclerView.Adapter<RecyclerAdapter
     public void onBindViewHolder(RankingHolder holder, int position) {
         holder.ranking_nombre.setText(listaRanking.get(position).getNombre());
         holder.ranking_autor.setText(listaRanking.get(position).getAutor());
-        holder.ranking_posicion.setText(listaRanking.get(position).getPosicion());
+        holder.ranking_posicion.setText(rank+listaRanking.get(position).getPosicion());
 
     }
 

@@ -8,12 +8,15 @@ public class Tienda {
     private String nombreTienda;
     private String ubicacionTienda;
     private String telefonoTienda;
+
+    private String imageUrl;
     private String mapTienda;
 
-    public Tienda(String nombreTienda, String ubicacionTienda, String telefonoTienda, String mapTienda) {
+    public Tienda(String nombreTienda, String ubicacionTienda, String telefonoTienda,String imageUrl, String mapTienda) {
         this.nombreTienda = nombreTienda;
         this.ubicacionTienda = ubicacionTienda;
         this.telefonoTienda = telefonoTienda;
+        this.imageUrl = imageUrl;
         this.mapTienda = mapTienda;
     }
 
@@ -47,6 +50,14 @@ public class Tienda {
 
     public void setMapTienda(String mapTienda) {
         this.mapTienda = mapTienda;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
 }

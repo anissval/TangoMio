@@ -8,12 +8,15 @@ public class Clase {
     private String ubicacion;
     private String mapa;
     private String duracion;
+    private String imageUrl;
 
-    public Clase(String profesor, String horario, String ubicacion, String duracion) {
-        this.profesor = profesor;
+    public Clase(String horario, String ubicacion, String mapa, String duracion, String imageUrl, String profesor) {
         this.horario = horario;
         this.ubicacion = ubicacion;
+        this.mapa = mapa;
         this.duracion = duracion;
+        this.imageUrl = imageUrl;
+        this.profesor = profesor;
     }
 
     private String profesor;
@@ -58,6 +61,13 @@ public class Clase {
         this.duracion = duracion;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
 
 }

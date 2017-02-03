@@ -1,11 +1,10 @@
 package com.valdiviezo.anahi.tangomio;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.View;
@@ -17,16 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.lang.reflect.Type;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,UbicacionFragment.OnFragmentInteractionListener, FragmentRanking.OnFragmentInteractionListener , FragmentVotacion.OnFragmentInteractionListener, FragmentVideo.OnFragmentInteractionListener{
@@ -42,8 +31,9 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                getOpenFacebookIntent();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
             }
         });
 
@@ -156,6 +146,18 @@ public class MainActivity extends AppCompatActivity
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Compartir esta App usando ... "));
+    }
+
+    public void getOpenFacebookIntent() {
+        Intent facebookAppIntent;
+        try {
+            facebookAppIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/366068080439458"));
+            startActivity(facebookAppIntent);
+        } catch (ActivityNotFoundException e) {
+            facebookAppIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://facebook.com/Tango-Mio-366068080439458"));
+            startActivity(facebookAppIntent);
+        }
+
     }
 
 }

@@ -13,14 +13,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.7"
-        android:layout_margin="15dp">
+        android:layout_margin="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Small Text"
             android:id="@+id/tienda_nombre"
+            android:textStyle="bold"
             android:layout_row="0"
             android:layout_column="0" />
 
@@ -50,6 +51,6 @@
         android:id="@+id/imageTienda"
         android:src="@drawable/ic_pareja_tango_3"
         android:layout_weight="0.3"
-        android:padding="15dp"/>
+        android:padding="5dp"/>
 
 </LinearLayout>
