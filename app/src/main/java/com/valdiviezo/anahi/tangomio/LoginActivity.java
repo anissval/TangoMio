@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +48,8 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+
+    private List<Usuario> dataUsuarios;
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -67,6 +78,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //mock usuarios
+        retrieveData();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -93,6 +106,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    //recuperamos datos de los usuarios
+    private void parseJsonData() throws IOException {
+        AssetManager assetManager = this.getAssets();
+        InputStream inputStream;
+        inputStream = assetManager.open("usuarios.json");
+        JsonReader reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
+        Type listType = new TypeToken<List<Usuario>>(){ }.getType();
+
+        Gson gson = new Gson();
+        dataUsuarios = gson.fromJson(reader, listType);
+    }
+
+    private void retrieveData(){
+        try {
+            parseJsonData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void populateAutoComplete() {
@@ -292,6 +325,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         int ADDRESS = 0;
         int IS_PRIMARY = 1;
     }
+
+
 
     /**
      * Represents an asynchronous login/registration task used to authenticate
