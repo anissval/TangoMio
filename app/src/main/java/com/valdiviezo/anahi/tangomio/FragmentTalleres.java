@@ -45,7 +45,7 @@ public class FragmentTalleres extends Fragment {
         this.pager = (ViewPager) root.findViewById(R.id.talleres_pager);
 
         // Create an adapter with the fragments we show on the ViewPager
-        pagerAdapter = new MyFragmentPagerAdapter(
+        /*pagerAdapter = new MyFragmentPagerAdapter(
                 getActivity().getSupportFragmentManager());
         pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
                 .getColor(R.color.colorPrimary), 0));
@@ -58,7 +58,7 @@ public class FragmentTalleres extends Fragment {
         pagerAdapter.addFragment(ScreenSlidePageFragment.newInstance(getResources()
                 .getColor(R.color.colorAccent), 4));
         this.pager.setAdapter(pagerAdapter);
-
+*/
         // Inflate the layout for this fragment
         return root;
     }
