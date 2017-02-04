@@ -144,9 +144,11 @@ public class MainActivity extends AppCompatActivity
         sharingIntent.setType("text/plain");
         String shareBody = "Toda la info sobre Tango y mas, descarga esta Aplicacion : https://play.google.com/store/apps/details?id=com.todotango.todotangoradio";
         String shareSub = "Tango Mio";
+        //adding the message into a shareMessage variable solved the crash issue
+        String shareMessage = "Compartir esta App usando ... ";
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-        startActivity(Intent.createChooser(sharingIntent, "Compartir esta App usando ... "));
+        startActivity(Intent.createChooser(sharingIntent, shareMessage));
     }
 
     public void getOpenFacebookIntent() {
