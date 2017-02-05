@@ -142,6 +142,7 @@ public class MainActivity extends AppCompatActivity
     public void compartirApp(){
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
+        //// TODO: reemplazar el el link con el de nuestra propia aplicacion una vez publicada, este es solo un ejemplo
         String shareBody = "Toda la info sobre Tango y mas, descarga esta Aplicacion : https://play.google.com/store/apps/details?id=com.todotango.todotangoradio";
         String shareSub = "Tango Mio";
         //adding the message into a shareMessage variable solved the crash issue

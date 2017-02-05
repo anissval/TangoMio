@@ -11,11 +11,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-/**
- *
- * @author amatellanes
- *
- */
 public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
     // List of fragments which are going to set in the view pager widget

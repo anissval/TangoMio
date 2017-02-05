@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -21,32 +20,20 @@ public class ScreenSlidePageFragment extends Fragment {
     private ImageView imageViewSlide;
     private ProgressBar loadingIndicatorSlide;
 
-    /**
-     * Key to insert the background color into the mapping of a Bundle.
-     */
     private static final String URL_IMAGE = "_imageURL";
-
-    /**
-     * Key to insert the index page into the mapping of a Bundle.
-     */
     private static final String INDEX = "index";
-
-    private int color;
-    private int index;
     private String imageUrl;
 
 
     public static ScreenSlidePageFragment newInstance(String imageUrl, int index) {
-
         // Instantiate a new fragment
         ScreenSlidePageFragment fragment = new ScreenSlidePageFragment();
-
         // Save the parameters
         Bundle bundle = new Bundle();
         bundle.putString(URL_IMAGE, imageUrl);
         bundle.putInt(INDEX, index);
         fragment.setArguments(bundle);
-        fragment.setRetainInstance(true);
+        //fragment.setRetainInstance(true);
 
         return fragment;
     }
@@ -58,7 +45,6 @@ public class ScreenSlidePageFragment extends Fragment {
         // Load parameters when the initial creation of the fragment is done
         this.imageUrl = (getArguments() != null) ? getArguments().getString(
                 URL_IMAGE) : null;
-
     }
 
     @Override
@@ -68,9 +54,6 @@ public class ScreenSlidePageFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_screen_slide_page, container, false);
 
-        // Show the current page index in the view
-        TextView tvIndex = (TextView) rootView.findViewById(R.id.tvIndex);
-        tvIndex.setText(String.valueOf(this.index));
         loadingIndicatorSlide = (ProgressBar) rootView.findViewById(R.id.loadingIndicatorSlide);
         loadingIndicatorSlide.setVisibility(View.VISIBLE);
         imageViewSlide = (ImageView) rootView.findViewById(R.id.imageViewSlide);
